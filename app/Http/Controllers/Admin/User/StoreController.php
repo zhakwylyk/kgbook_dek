@@ -13,10 +13,10 @@ class StoreController extends Controller
 {
     public function index(StoreRequest $request){
 
-     $data = $request->validated(); 
-     $data['password'] = Hash::make($data['password']);   
-     User::firstOrCreate(['email'=> $data ['email']], $data);
-     return redirect()->route('admin.user.index');  
+        $data = $request->validated();
+        $data['password'] = Hash::make($data['password']);
+        User::firstOrCreate(['email'=> $data ['email']], $data);
+        return redirect()->route('admin.user.index');
 
 
     }

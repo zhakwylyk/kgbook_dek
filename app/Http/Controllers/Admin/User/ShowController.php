@@ -11,8 +11,8 @@ class ShowController extends Controller
     public function index(User $user)
     {
         $users = User::all();
-        // dd($users);
+//         dd($users);
         return view('admin.user.show', compact('user'));
     }
- 
+
 }

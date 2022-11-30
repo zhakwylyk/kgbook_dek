@@ -33,13 +33,14 @@
       @csrf
     <input type="text" class="form-control" name="name" placeholder="Имя"><br>
     <input type="text" class="form-control" name="email" placeholder="E-mail"><br>
-    <input type="text" class="form-control" name="password" placeholder="Password"><br>
+        <input type="text" class="form-control" name="password" placeholder="Password"><br>
+
 
     <div class="form-group w-50" >
-                        <label>Выберите пользователя</label>
+                        <label>Выберите роль</label>
             <select name="role" class="form-control">
                 @foreach($roles as $id => $role)
-                        <option value="{{ $id}}" {{ $id = old('role_id') ? ' selected' : '' }} 
+                        <option value="{{ $id }}" {{ $id = old('role_id') ? ' selected' : '' }}
                     >{{ $role }}</option>
                 @endforeach
             </select>
@@ -49,10 +50,9 @@
     <button type="submit" class="btn btn-primary" value="Добавить">Submit</button>
     </form>
 
-    
-   <!-- Добавить категории --> 
+
+   <!-- Добавить категории -->
 
      @endsection
-  
 
-  
+

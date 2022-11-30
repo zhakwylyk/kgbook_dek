@@ -3,6 +3,7 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -17,7 +18,6 @@ class User extends Authenticatable
 
 
     public static function getRoles(){
-
         return [
             self::ROLE_ADMIN => 'Админ',
             self::ROLE_READER => 'Читатель',
@@ -33,7 +33,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'roles',
+        'role',
     ];
 
     /**
@@ -54,4 +54,13 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
+    public function likedPost(){
+        return $this->belongsToMany(Post::class, 'post_user_likes', 'user_id', 'post_id');
+    }
+
+    public function comments(){
+        return $this->hasMany(Comment::class, 'user_id', 'id');
+    }
 }

@@ -47,10 +47,9 @@
     <button type="submit" class="btn btn-primary" value="Изменить">Submit</button>
     </form>
 
-    
-   <!-- Добавить категории --> 
+
+   <!-- Добавить категории -->
 
      @endsection
-  
 
-  
+

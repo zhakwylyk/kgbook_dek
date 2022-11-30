@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="col-5"> 
+<div class="col-5">
         <a href="{{route('admin.category.create') }}" type="button" class="btn btn-block btn-primary">Добавить</a>
      </div>
 
@@ -13,17 +13,17 @@
                 <table class="table table-hover text-nowrap">
                   <thead>
                   <tr>
-                      <th>ID</th>
-                      <th>title</th>
-                      <th>Действия</th>
+{{--                      <th>ID</th>--}}
+                      <th>Жанры</th>
+                      <th>Изменить</th>
                     </tr>
                   </thead>
                   <tbody>
-                  @foreach($categories as $category)                  
+                  @foreach($categories as $category)
                   <tr>
-                      <td>{{$category->id}}</td>
+{{--                      <td>{{$category->id}}</td>--}}
                       <td>{{$category->title}}</td>
-                      <td><a href="{{ route('admin.category.show', $category->id) }}">Category</a></td>
+{{--                      <td><a href="{{ route('admin.category.show', $category->id) }}">Category</a></td>--}}
                       <td><a href="{{ route('admin.category.edit', $category->id) }}">Edit</a></td>
                       <td>
                      <form action="{{ route('admin.category.delete', $category->id) }}"

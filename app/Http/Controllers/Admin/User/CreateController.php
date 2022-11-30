@@ -11,7 +11,7 @@ class CreateController extends Controller
     public function index()
     {
         $roles = User::getRoles();
-        // dd($roles);
+//         dd($roles);
         return view('admin.user.create', compact('roles'));
     }
 

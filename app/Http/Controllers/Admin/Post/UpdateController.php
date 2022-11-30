@@ -12,12 +12,17 @@ class UpdateController extends Controller
 {
     public function index(UpdateRequest $request, Post $post)
     {
-        $data = $request->validated(); 
+        $data = $request->validated();
 
         $tagsIds = $data ['tag_ids'];
-        unset($data ['tag_ids']); 
-        $data ['preview_image'] = Storage::disk('public')->put('/images', $data['preview_image']);
-        $data ['main_image'] = Storage::disk('public')->put('public/images', $data['main_image']);
+        unset($data ['tag_ids']);
+        if (isset($data['preview_image'])) {
+            $data['preview_image'] = Storage::disk('public')->put('/images', $data['preview_image']);
+        }
+        if (isset($data['main_image'])) {
+            $data['main_image'] = Storage::disk('public')->put('public/images', $data['main_image']);
+        }
+
         $post->update($data);
         $post->tags()->sync($tagsIds);
         return view('admin.post.show', compact('post'));

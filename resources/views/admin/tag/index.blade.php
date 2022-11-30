@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="col-5"> 
+<div class="col-5">
         <a href="{{route('admin.tag.create') }}" type="button" class="btn btn-block btn-primary">Добавить</a>
      </div>
 
@@ -13,17 +13,17 @@
                 <table class="table table-hover text-nowrap">
                   <thead>
                   <tr>
-                      <th>ID</th>
-                      <th>title</th>
-                      <th>Действия</th>
+{{--                      <th>ID</th>--}}
+                      <th>Тэги</th>
+                      <th>Изменить</th>
                     </tr>
                   </thead>
                   <tbody>
-                  @foreach($tag as $tag)                  
+                  @foreach($tag as $tag)
                   <tr>
-                      <td>{{$tag->id}}</td>
+{{--                      <td>{{$tag->id}}</td>--}}
                       <td>{{$tag->title}}</td>
-                      <td><a href="{{ route('admin.tag.show', $tag->id) }}">Tags</a></td>
+{{--                      <td><a href="{{ route('admin.tag.show', $tag->id) }}">Tags</a></td>--}}
                       <td><a href="{{ route('admin.tag.edit', $tag->id) }}">Edit</a></td>
                       <td>
                      <form action="{{ route('admin.tag.delete', $tag->id) }}"
